@@ -1,0 +1,644 @@
+<html>
+<head>
+<title>The W.C. and A.N. Miller Development Company - Celebrating 100 Years - 1912-2012</title>
+<META NAME="KEYWORDS" CONTENT="#”>
+<META NAME="DESCRIPTION>
+<META NAME="CLASSIFICATION" CONTENT="#">
+<meta name="robots" content="all">
+<meta name="revisit-after" content="10 Days">
+<meta name="distribution" content="Global">
+<META NAME="copyright" CONTENT="Mark Wilensky">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK 
+href="esc.css" type=text/css 
+rel=stylesheet>
+<style type="text/css">
+<!--
+.head1Red { FONT-SIZE: 24px; COLOR: E0002C; FONT-FAMILY: arial, helvetica, sans}
+.times {  font-family: Georgia, "Times New Roman", Times, serif; font-size: 16pt; color: #666666; line-height: 19pt}
+.times2 { font-family: Georgia, "Times New Roman", Times, serif; font-size: 18pt; color: 00345b; line-height: 19pt }
+.times3 { font-family: "Times New Roman", Times, serif; font-size: 18pt; color: 00345b; line-height: 19pt ; font-style: italic; font-weight: normal}
+.timesprop { font-family: "Times New Roman", Times, serif; font-size: 11pt; color: #FFFFFF; line-height: normal}
+-->
+</style>
+<SCRIPT language=JavaScript 
+src="functions.js"></SCRIPT>
+<script type="text/javascript">
+<!--
+/***********************************************
+* Ultimate Fade-In Slideshow (v1.51): © Dynamic Drive (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+ 
+var fadeimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+fadeimages[0]=["img/photo2.jpg", "", ""] //plain image syntax
+fadeimages[1]=["img/photo1.jpg", "", ""] //plain image syntax
+fadeimages[2]=["img/photo5.jpg", "", ""] //plain image syntax
+fadeimages[3]=["img/photo4.jpg", "", ""] //plain image syntax
+
+ 
+var fadebgcolor="white"
+
+////NO need to edit beyond here/////////////
+ 
+var fadearray=new Array() //array to cache fadeshow instances
+var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+ 
+var dom=(document.getElementById) //modern dom browsers
+var iebrowser=document.all
+ 
+function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+this.pausecheck=pause
+this.mouseovercheck=0
+this.delay=delay
+this.degree=10 //initial opacity degree (10%)
+this.curimageindex=0
+this.nextimageindex=1
+fadearray[fadearray.length]=this
+this.slideshowid=fadearray.length-1
+this.canvasbase="canvas"+this.slideshowid
+this.curcanvas=this.canvasbase+"_0"
+if (typeof displayorder!="undefined")
+theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+this.theimages=theimages
+this.imageborder=parseInt(borderwidth)
+this.postimages=new Array() //preload images
+for (p=0;p<theimages.length;p++){
+this.postimages[p]=new Image()
+this.postimages[p].src=theimages[p][0]
+}
+ 
+var fadewidth=fadewidth+this.imageborder*2
+var fadeheight=fadeheight+this.imageborder*2
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+else
+document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+this.startit()
+else{
+this.curimageindex++
+setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+}
+}
+
+function fadepic(obj){
+if (obj.degree<100){
+obj.degree+=10
+if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+obj.tempobj.filters[0].opacity=obj.degree
+else //else if IE5.5-
+obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+}
+else if (obj.tempobj.style.MozOpacity)
+obj.tempobj.style.MozOpacity=obj.degree/101
+else if (obj.tempobj.style.KhtmlOpacity)
+obj.tempobj.style.KhtmlOpacity=obj.degree/100
+else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+obj.tempobj.style.opacity=obj.degree/101
+}
+else{
+clearInterval(fadeclear[obj.slideshowid])
+obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+obj.populateslide(obj.tempobj, obj.nextimageindex)
+obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+}
+}
+ 
+fadeshow.prototype.populateslide=function(picobj, picindex){
+var slideHTML=""
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML+='</a>'
+picobj.innerHTML=slideHTML
+}
+ 
+ 
+fadeshow.prototype.rotateimage=function(){
+if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+var cacheobj=this
+if (this.mouseovercheck==1)
+setTimeout(function(){cacheobj.rotateimage()}, 100)
+else if (iebrowser&&dom||dom){
+this.resetit()
+var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+crossobj.style.zIndex++
+fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+}
+else{
+var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+ns4imgobj.src=this.postimages[this.curimageindex].src
+}
+this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+}
+ 
+fadeshow.prototype.resetit=function(){
+this.degree=10
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+if (crossobj.filters&&crossobj.filters[0]){
+if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+crossobj.filters(0).opacity=this.degree
+else //else if IE5.5-
+crossobj.style.filter="alpha(opacity="+this.degree+")"
+}
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=this.degree/101
+else if (crossobj.style.KhtmlOpacity)
+crossobj.style.KhtmlOpacity=this.degree/100
+else if (crossobj.style.opacity&&!crossobj.filters)
+crossobj.style.opacity=this.degree/101
+}
+ 
+ 
+fadeshow.prototype.startit=function(){
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+this.populateslide(crossobj, this.curimageindex)
+if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+var cacheobj=this
+var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+}
+this.rotateimage()
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<script type="text/javascript" src="highslide/highslide-with-gallery.js"></script>
+<link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
+<!--
+	2) Optionally override the settings defined at the top
+	of the highslide.js file. The parameter hs.graphicsDir is important!
+--> 
+<script type="text/javascript"> 
+hs.graphicsDir = 'highslide/graphics/';
+hs.align = 'center';
+hs.transitions = ['expand', 'crossfade'];
+hs.outlineType = 'rounded-white';
+hs.fadeInOut = true;
+//hs.dimmingOpacity = 0.75;
+ 
+// Add the controlbar
+hs.addSlideshow({
+	//slideshowGroup: 'group1',
+	interval: 5000,
+	repeat: false,
+	useControls: true,
+	fixedControls: 'fit',
+	overlayOptions: {
+		opacity: 0.75,
+		position: 'bottom center',
+		hideOnMouseOut: true
+	}
+});
+</script>
+</head>
+
+<body background="img/bk-home.jpg" topmargin=0 leftmargin=0" onLoad="MM_preloadImages('img/nav/1r.jpg','img/nav/2r.jpg','img/nav/3r.jpg','img/nav/4r.jpg','img/nav/5r.jpg','img/nav/6r.jpg','img/nav/7r.jpg')">
+<div align="center">
+  <table width="908" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td colspan="3"> 
+        <div align="center"><img src="img/s-top.png" width="1036" height="23"></div>
+      </td>
+    </tr>
+    <tr> 
+      <td valign="top" height="585" width="23" background="img/shadow-left.png"><img src="img/spacer2.gif" width="23" height="1"></td>
+      <td valign="top" height="585" width="1008"> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td><img src="img/top-logo-nav.jpg" width="990" height="164"></td>
+          </tr>
+          <tr> 
+            <td> 
+              <table width="901" border="0" cellspacing="0" cellpadding="0">
+                <tr> 
+                  <td><a href="index.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image18','','img/nav/1r.jpg',1)"><img name="Image18" border="0" src="img/nav/1.jpg" width="83" height="35"></a></td>
+                  <td><a href="company-history.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image19','','img/nav/2r.jpg',1)"><img name="Image19" border="0" src="img/nav/2.jpg" width="143" height="35"></a></td>
+                  <td><a href="leasing.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image20','','img/nav/3r.jpg',1)"><img name="Image20" border="0" src="img/nav/3r.jpg" width="213" height="35"></a></td>
+                  <td><a href="residential-management.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image21','','img/nav/4r.jpg',1)"><img name="Image21" border="0" src="img/nav/4.jpg" width="192" height="35"></a></td>
+                  <td><a href="http://www.wcanmiller.com/intranet/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image22','','img/nav/5r.jpg',1)"><img name="Image22" border="0" src="img/nav/5.jpg" width="150" height="35"></a></td>
+                  <td><a href="http://www.wcanmiller.com/intranet/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image23','','img/nav/6r.jpg',1)"><img name="Image23" border="0" src="img/nav/6.jpg" width="114" height="35"></a></td>
+                  <td><a href="contact.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image24','','img/nav/7r.jpg',1)"><img name="Image24" border="0" src="img/nav/7.jpg" width="95" height="35"></a></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr> 
+            <td height="2"> <i> 
+              <script type="text/javascript">
+//new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause (0=no, 1=yes), optionalRandomOrder
+new fadeshow(fadeimages, 990, 342, 0, 4000, 1)
+ 
+</script>
+              </i> </td>
+          </tr>
+          <tr valign="top"> 
+            <td height="51"> 
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr> 
+                  <td height="2"><img src="img/middle-bar-blue.jpg" width="990" height="16"></td>
+                </tr>
+                <tr> 
+                  <td> 
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+                      <tr> 
+                        <td width="1%" valign="top" background="img/line-border-left.jpg"><img src="img/spacer2.gif" width="18" height="1"></td>
+                        <td width="94%" valign="top"> 
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr> 
+                              <td colspan="2"><img src="img/spacer.gif" width="946" height="20"></td>
+                            </tr>
+                            <tr> 
+                              <td colspan="2" height="975"> 
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr> 
+                                    <td width="2%"><img src="img/spacer.gif" width="22" height="10"></td>
+                                    <td width="98%" valign="top"> 
+                                      <p><span class="times2">Commercial/Retail 
+                                        Leasing </span><span class=gray0><br>
+                                        <br>
+                                        The W.C. and A.N. Miller Development Company 
+                                        own several properties in upper Northwest 
+                                        Washington, DC along with <br>
+                                        an office and retail center in Bethesda, 
+                                        Maryland. <br>
+                                        <br>
+                                        In Bethesda, Maryland W.C. and A.N. Miller 
+                                        owns The Shops at Sumner Place, located 
+                                        at 4701 Sangamore Road, Bethesda, Maryland 
+                                        20816. Adjacent to <a href="residential-management.htm">Sumner 
+                                        Highlands</a>, Sumner Place is a retail 
+                                        development housing a complete array of 
+                                        services including grocery, banks, restaurants, 
+                                        pharmacy, cleaners, clothing, hair care, 
+                                        and more. In the center is a main office 
+                                        building with a variety of business and 
+                                        professional offices. <br>
+                                        </span></p>
+                                      <table width="898" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                          <td width="501" height="12"><span class=gray0><b>The 
+                                            Washington, DC properties are located 
+                                            at the following addresses: </b></span></td>
+                                          <td width="29" height="12"><img src="img/find.png" width="22" height="22"></td>
+                                          <td width="368" height="12"><span class=gray0>CLICK 
+                                            PHOTO TO ENLARGE</span></td>
+                                        </tr>
+                                      </table>
+                                      
+                                      <br>
+                                      <table width="100" border="0" cellspacing="0" cellpadding="0">
+                                        <tr> 
+                                          <td> 
+                                            <table width="756" border="0" cellspacing="0" cellpadding="0">
+                                              <tr> 
+                                                <td width="26%" height="122" valign="top"><a href="img/properties/4300-fordam-road-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  <img src="img/properties/4300-fordam-road.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/> </a> </td>
+                                                <td rowspan="3" width="1%"><img src="img/spacer.gif" width="25" height="10"></td>
+                                                <td width="45%" valign="top" height="122"><a href="img/properties/4820-mass-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  <img src="img/properties/4820-mass.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/></a> </td>
+                                                <td rowspan="3" width="2%"><img src="img/spacer.gif" width="25" height="10"></td>
+                                                <td width="26%" valign="top" height="122"><a href="img/properties/4860-mass-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  <img src="img/properties/4860-mass.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/></a> </td>
+                                              </tr>
+                                              <tr> 
+                                                <td rowspan="2" bgcolor="00345b" valign="middle"> 
+                                                  <div align="center"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">4300 
+                                                            Fordham Road, NW </div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                                <td rowspan="2" bgcolor="00345b" valign="middle"> 
+                                                  <div align="center" class="timesprop"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">4820 
+                                                            Massachusetts Avenue, 
+                                                            NW</div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                                <td rowspan="2" valign="middle" bgcolor="00345b"> 
+                                                  <div align="center" class="timesprop"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">4860 
+                                                            Massachusetts Avenue, 
+                                                            NW </div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                              <tr> </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                        <tr> 
+                                          <td><img src="img/spacer2.gif" width="1" height="25"></td>
+                                        </tr>
+                                        <tr> 
+                                          <td> 
+                                            <table width="756" border="0" cellspacing="0" cellpadding="0">
+                                              <tr> 
+                                                <td width="26%" height="122" valign="top"><a href="img/properties/4866-mass-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  <img src="img/properties/4866-mass.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/> </a> </td>
+                                                <td rowspan="3" width="1%"><img src="img/spacer.gif" width="25" height="10"></td>
+                                                <td width="45%" valign="top" height="122"><a href="img/properties/4872-mass-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  <img src="img/properties/4872-mass.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/></a> </td>
+                                                <td rowspan="3" width="2%"><img src="img/spacer.gif" width="25" height="10"></td>
+                                                <td width="26%" valign="top" height="122"><a href="img/properties/4900-mass-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  <img src="img/properties/4900-mass.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/></a> </td>
+                                              </tr>
+                                              <tr> 
+                                                <td rowspan="2" bgcolor="00345b" valign="middle"> 
+                                                  <div align="center"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">4866 
+                                                            Massachusetts Avenue, 
+                                                            NW</div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                                <td rowspan="2" bgcolor="00345b" valign="middle"> 
+                                                  <div align="center" class="timesprop"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">4872/4874 
+                                                            Mass. Ave./4325 49th 
+                                                            St., NW</div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                                <td rowspan="2" valign="middle" bgcolor="00345b"> 
+                                                  <div align="center" class="timesprop"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">4900 
+                                                            Massachusetts Avenue, 
+                                                            NW</div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                              <tr> </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                        <tr> 
+                                          <td><img src="img/spacer2.gif" width="1" height="25"></td>
+                                        </tr>
+                                        <tr> 
+                                          <td> 
+                                            <table width="756" border="0" cellspacing="0" cellpadding="0">
+                                              <tr> 
+                                                <td width="26%" height="122" valign="top"><a href="img/properties/4910-mass-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  <img src="img/properties/4910-mass.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/> </a> </td>
+                                                <td rowspan="3" width="1%"><img src="img/spacer.gif" width="25" height="10"></td>
+                                                <td width="45%" valign="top" height="122"><a href="img/properties/4301-49-st-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  </a><a href="img/properties/4301-50-st-lg.jpg" class="highslide" onClick="return hs.expand(this)"><img src="img/properties/4301-50-st.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/></a> </td>
+                                                <td rowspan="3" width="2%"><img src="img/spacer.gif" width="25" height="10"></td>
+                                                <td width="26%" valign="top" height="122"><a href="img/properties/4325-49-st-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  </a><a href="img/properties/4315-50-lg.jpg" class="highslide" onClick="return hs.expand(this)"><img src="img/properties/4315-50.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/></a> </td>
+                                              </tr>
+                                              <tr> 
+                                                <td rowspan="2" bgcolor="00345b" valign="middle"> 
+                                                  <div align="center"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">4910 
+                                                            Massachusetts Avenue, 
+                                                            NW</div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                                <td rowspan="2" bgcolor="00345b" valign="middle"> 
+                                                  <div align="center" class="timesprop"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">4301 
+                                                            50th Street, NW</div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                                <td rowspan="2" valign="middle" bgcolor="00345b"> 
+                                                  <div align="center" class="timesprop"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">4315 
+                                                            50th Street, NW</div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                              <tr> </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                        <tr> 
+                                          <td><img src="img/spacer2.gif" width="1" height="25"></td>
+                                        </tr>
+                                        <tr> 
+                                          <td> 
+                                            <table width="756" border="0" cellspacing="0" cellpadding="0">
+                                              <tr> 
+                                                <td width="26%" height="122" valign="top"><a href="img/properties/4507-sangamore-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  </a><a href="img/properties/4701-sangamore-lg.jpg" class="highslide" onClick="return hs.expand(this)"><img src="img/properties/4701-sangamore.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/></a><a href="img/properties/4507-sangamore-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  </a> </td>
+                                                <td rowspan="3" width="1%"><img src="img/spacer.gif" width="25" height="10"></td>
+                                                <td width="45%" valign="top" height="122"><a href="img/properties/4701-sangamore-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  </a><a href="img/properties/1553-sang-lg.jpg" class="highslide" onClick="return hs.expand(this)"><img src="img/properties/1553-sang.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/></a> </td>
+                                                <td rowspan="3" width="2%"><img src="img/spacer.gif" width="25" height="10"></td>
+                                                <td width="26%" valign="top" height="122"><a href="img/properties/4860-mass-lg.jpg" class="highslide" onClick="return hs.expand(this)"> 
+                                                  </a><a href="img/properties/1561-sang-lg.jpg" class="highslide" onClick="return hs.expand(this)"><img src="img/properties/1561-sang.jpg" alt="Highslide JS"
+		title="Click to enlarge" width="287" height="157" border="0"/></a> </td>
+                                              </tr>
+                                              <tr> 
+                                                <td rowspan="2" bgcolor="00345b" valign="middle"> 
+                                                  <div align="center"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">The 
+                                                            Shops at Sumner Place<br>
+                                                            4701 Sangamore Road</div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                                <td rowspan="2" valign="middle" bgcolor="00345b"> 
+                                                  <div align="center" class="timesprop"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">The 
+                                                            Shops at Sumner Place<br>
+                                                            4701 Sangamore Road</div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                                <td rowspan="2" valign="middle" bgcolor="00345b"> 
+                                                  <div align="center" class="timesprop"> 
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                                      <tr> 
+                                                        <td> 
+                                                          <div align="center" class="timesprop">The 
+                                                            Shops at Sumner Place<br>
+                                                            4701 Sangamore Road 
+                                                          </div>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                              <tr> </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                        <tr> 
+                                          <td height="91"> 
+                                            <p>&nbsp;</p>
+                                            <table width="600" border="0" cellspacing="0" cellpadding="0">
+                                              <tr> 
+                                                <td width="22">&nbsp;</td>
+                                                <td width="578"><span class=gray0><b>Leasing 
+                                                  and Management by McShea Management, 
+                                                  Inc.</b></span> - <span class=gray0><a href="http://mcsheaco.com/" target="_blank">www.mcsheaco.com</a></span><br>
+                                                  <br>
+                                                  <span class=gray0><b>Leasing 
+                                                  Information: </b><br>
+                                                  Call Tim Connolly at 301-948-9870 
+                                                  or <a href="mailto:tconnolly@mcsheaco.com">tconnolly@mcsheaco.com</a> 
+                                                  <br>
+                                                  <br>
+                                                  <b>Property Management Information: 
+                                                  </b><br>
+                                                  Call Scott McLellan at 301-948-2600 
+                                                  or <a href="mailto:smclellan@mcsheaco.com">smclellan@mcsheaco.com</a> 
+                                                  <br>
+                                                  or Liz Murphey at 202-244-2391 
+                                                  or <a href="mailto:lmurphey@mcsheaco.com">lmurphey@mcsheaco.com</a> 
+                                                  </span></td>
+                                              </tr>
+                                            </table>
+                                            <p><br>
+                                            </p>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                  
+                               
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                          <div align="center"> </div>
+                        </td>
+                        <td width="0%" valign="top">&nbsp;</td>
+                        <td width="5%" valign="top" background="img/line-border-right.jpg"><img src="img/line-border-right.jpg" width="22" height="409"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td valign="top" height="585" background="img/shadow-right.png" width="23"><img src="img/spacer2.gif" width="23" height="1"></td>
+    </tr>
+  </table>
+  <table width="100" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td valign="top" width="23" height="128"><img src="img/s-footer-left.png" width="23" height="200"></td>
+      <td width="1007" height="128" valign="top"><img src="img/footer.jpg" width="990" height="200" usemap="#Map" border="0"><map name="Map"><area shape="rect" coords="800,168,914,187" href="http://www.wcanmiller.com/intranet/admin/"></map></td>
+      <td width="6" valign="top" height="128"><img src="img/s-footer-right.png" width="23" height="200"></td>
+    </tr>
+    <tr> 
+      <td colspan="3">
+        <div align="center"><img src="img/s-footer-bottom.png" width="1036" height="28"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

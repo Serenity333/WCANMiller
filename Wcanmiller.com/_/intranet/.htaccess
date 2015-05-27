@@ -1,0 +1,14 @@
+# Begin password protection #
+AuthName "Password Protected"
+Require valid-user
+AuthUserFile "/home/users/web/b721/glo.globatct/intranet/.htpasswd"
+AuthType basic
+# End password protection #
+
+
+
+#AuthType Basic
+#AuthName "Password Protected"
+#AuthUserFile /hermes/bosoraweb110/b721/glo.globatct/intranet/admin/.htpasswd
+#AuthGroupFile /hermes/bosoraweb110/b721/glo.globatct/intranet/admin/groups
+#Require Group admin boardmember shareholder

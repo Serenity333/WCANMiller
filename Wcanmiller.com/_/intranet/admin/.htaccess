@@ -1,0 +1,10 @@
+# Begin password protection #
+AuthName "Password Protected"
+Require valid-user
+AuthUserFile "/home/users/web/b721/glo.globatct/intranet/admin/.htpasswd"
+AuthType basic
+# End password protection #
+
+
+
+AuthGroupFile /hermes/bosoraweb110/b721/glo.globatct/intranet/admin/groups

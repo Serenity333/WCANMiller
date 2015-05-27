@@ -1,0 +1,271 @@
+/* Main color and sizes */
+body {
+	background: #EAF1DD;
+	
+	color: #000000;
+	font-family: Copperplate Gothic Light;
+	font-size: 11pt;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: #0000FF;
+}
+a:hover {
+	
+}
+a img {
+  	border: none;
+}
+
+.nosee {
+	display: none;
+}
+
+.container {
+	width: 1021px;
+}
+
+.guest {
+	width: 835px;
+	margin: auto;
+}
+
+.imgContainer {
+	text-align: center;
+	margin: auto;	
+	width: 835px;
+}
+
+.main {
+	float: left;
+	width: 700px;
+	font-size: 12px;
+	text-align: left;
+	padding: 10px;
+	margin: 0px;
+}
+
+.header, .headercenter {
+	font-size: 36pt;
+	font-weight: bold;
+	display: block;
+	width: 100%;
+	height: 150px;
+	margin: 0px;
+	padding: 20px 0px 20px 0px;
+	border-bottom: 1px solid;
+	background: transparent;
+	font-family: Copperplate Gothic Bold;
+	min-width: 600px;
+	text-align: center;
+}
+.headercenter {
+	text-align: center;
+}
+.headerin {
+	width: 916px;
+	padding-left: 105px;
+}
+span.smallheader {
+	font-size: 24pt;
+}
+
+.footer {
+	font-size: 9pt;
+	padding: 10px;
+	text-align: center;
+	width: 100%;
+	min-width: 600px;
+	clear: both;
+	margin: auto;
+}
+
+.title {
+	width: 100%;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 8px;
+}
+span.logintitle {
+	font-family: Copperplate Gothic Bold;
+	font-size: 16pt;
+}
+span.maintitle {
+	font-family: Copperplate Gothic Light;
+	font-size: 20pt;
+}
+
+span.selectaccess {
+	font-style:italic;
+}
+
+span.clickto a {
+	font-size: 12pt;
+}
+
+.serving {
+	width: 100%;
+	text-align: center;
+	padding-top: 20px;
+}
+p.just {
+	text-align: justify;
+}
+
+/* NAV */
+.nav {
+	float: left;
+	width: 300px;
+	font-size: 12px;
+}
+
+.nav a {
+	text-decoration: none;
+	color: #444444;
+}
+.nav a:hover {
+	text-decoration: none;
+	color: #888888;
+}
+
+p.nav {
+	font-size: 14px;
+	margin: 5px 0px;
+	padding: 0px 0px 0px 8px;
+	width: 292px;
+	float: none;
+	min-height: 0px;
+}
+
+ul.subnav {
+	font-size: 12px;
+	margin: 0px 0px 10px 0px;
+}
+li.subnav {
+	list-style: none;
+}
+
+/* END NAV */
+
+/* Files Table */
+table.files {
+	width: 100%;
+	font-size: 12px;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	border-spacing: 0px 0px;
+}
+tr {
+	margin: 0px;
+	padding: 0px;
+	background: #FAFFEE;
+}
+td {
+	border: 1px solid #000000;
+	padding: 3px;
+}
+tr.filestop {
+	border-top: 1px solid;
+}
+tr.filesbottom {
+	border-bottom: 1px solid;
+}
+tr.spacer {
+	border: none;
+	background: transparent;
+	padding: 10px 0px;
+}
+td.displayname {
+	width: 80%;
+	border: none;
+}
+td.udate {
+	width: 20%;
+	border: none;
+	text-align: right;
+}
+td.comments, td.spacer {
+	border: none;
+}
+
+tr.pagenav {
+	border: none;
+	background: transparent;
+	padding: 10px 0px;
+}
+td.leftpagenav {
+	text-align: left;
+	border: none;
+}
+td.rightpagenav {
+	text-align: right;
+	border: none;
+}
+td.rightpagenav a,  td.leftpagenav a{
+	text-decoration: none;
+	color: #444444;
+}
+td.rightpagenav a:hover, td.leftpagenav a:hover {
+	text-decoration: none;
+	color: #888888;
+}
+
+/* End Files Table*/
+
+/* admin edits */
+div.admin {
+	text-align: center;
+	padding-top: 20px;
+}
+td.admin {
+	font-weight: bold;
+	border: none;
+}
+
+.edit {
+	display: inline;
+	float: right;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.delete {
+	display: inline;
+	float: right;
+	text-align: right;
+}
+
+.red {
+	color: #cc0000;
+}
+
+/* end admin edits*/
+
+/* upload table */
+
+table.upload {
+	font-size: 12px;
+	text-align: left;
+	margin: auto;
+	padding: 0px;
+	border-collapse: collapse;
+	border-spacing: 0px 0px;
+}
+
+/* end upload table */
+
+/* temp*/
+
+.temp { 
+	position: absolute;
+	top: 180px;
+	left: 15px;
+	font-family: arial;
+}

@@ -1,0 +1,320 @@
+<html>
+<head>
+<title>The W.C. and A.N. Miller Development Company - Celebrating 100 Years - 1912-2012</title>
+<META NAME="KEYWORDS" CONTENT="#”>
+<META NAME="DESCRIPTION>
+<META NAME="CLASSIFICATION" CONTENT="#">
+<meta name="robots" content="all">
+<meta name="revisit-after" content="10 Days">
+<meta name="distribution" content="Global">
+<META NAME="copyright" CONTENT="Mark Wilensky">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK 
+href="esc.css" type=text/css 
+rel=stylesheet>
+<style type="text/css">
+<!--
+.head1Red { FONT-SIZE: 24px; COLOR: E0002C; FONT-FAMILY: arial, helvetica, sans}
+.times {  font-family: Georgia, "Times New Roman", Times, serif; font-size: 16pt; color: #666666; line-height: 19pt}
+.times2 { font-family: Georgia, "Times New Roman", Times, serif; font-size: 18pt; color: 00345b; line-height: 19pt }
+.times3 { font-family: "Times New Roman", Times, serif; font-size: 18pt; color: 00345b; line-height: 19pt ; font-style: italic; font-weight: normal}
+-->
+</style>
+<SCRIPT language=JavaScript 
+src="functions.js"></SCRIPT>
+<script type="text/javascript">
+<!--
+/***********************************************
+* Ultimate Fade-In Slideshow (v1.51): © Dynamic Drive (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+ 
+var fadeimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+fadeimages[0]=["img/photo1.jpg", "", ""] //plain image syntax
+fadeimages[1]=["img/photo2.jpg", "", ""] //plain image syntax
+fadeimages[2]=["img/photo3.jpg", "", ""] //plain image syntax
+fadeimages[3]=["img/photo4.jpg", "", ""] //plain image syntax
+
+ 
+var fadebgcolor="white"
+
+////NO need to edit beyond here/////////////
+ 
+var fadearray=new Array() //array to cache fadeshow instances
+var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+ 
+var dom=(document.getElementById) //modern dom browsers
+var iebrowser=document.all
+ 
+function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+this.pausecheck=pause
+this.mouseovercheck=0
+this.delay=delay
+this.degree=10 //initial opacity degree (10%)
+this.curimageindex=0
+this.nextimageindex=1
+fadearray[fadearray.length]=this
+this.slideshowid=fadearray.length-1
+this.canvasbase="canvas"+this.slideshowid
+this.curcanvas=this.canvasbase+"_0"
+if (typeof displayorder!="undefined")
+theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+this.theimages=theimages
+this.imageborder=parseInt(borderwidth)
+this.postimages=new Array() //preload images
+for (p=0;p<theimages.length;p++){
+this.postimages[p]=new Image()
+this.postimages[p].src=theimages[p][0]
+}
+ 
+var fadewidth=fadewidth+this.imageborder*2
+var fadeheight=fadeheight+this.imageborder*2
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+else
+document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+this.startit()
+else{
+this.curimageindex++
+setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+}
+}
+
+function fadepic(obj){
+if (obj.degree<100){
+obj.degree+=10
+if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+obj.tempobj.filters[0].opacity=obj.degree
+else //else if IE5.5-
+obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+}
+else if (obj.tempobj.style.MozOpacity)
+obj.tempobj.style.MozOpacity=obj.degree/101
+else if (obj.tempobj.style.KhtmlOpacity)
+obj.tempobj.style.KhtmlOpacity=obj.degree/100
+else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+obj.tempobj.style.opacity=obj.degree/101
+}
+else{
+clearInterval(fadeclear[obj.slideshowid])
+obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+obj.populateslide(obj.tempobj, obj.nextimageindex)
+obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+}
+}
+ 
+fadeshow.prototype.populateslide=function(picobj, picindex){
+var slideHTML=""
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML+='</a>'
+picobj.innerHTML=slideHTML
+}
+ 
+ 
+fadeshow.prototype.rotateimage=function(){
+if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+var cacheobj=this
+if (this.mouseovercheck==1)
+setTimeout(function(){cacheobj.rotateimage()}, 100)
+else if (iebrowser&&dom||dom){
+this.resetit()
+var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+crossobj.style.zIndex++
+fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+}
+else{
+var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+ns4imgobj.src=this.postimages[this.curimageindex].src
+}
+this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+}
+ 
+fadeshow.prototype.resetit=function(){
+this.degree=10
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+if (crossobj.filters&&crossobj.filters[0]){
+if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+crossobj.filters(0).opacity=this.degree
+else //else if IE5.5-
+crossobj.style.filter="alpha(opacity="+this.degree+")"
+}
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=this.degree/101
+else if (crossobj.style.KhtmlOpacity)
+crossobj.style.KhtmlOpacity=this.degree/100
+else if (crossobj.style.opacity&&!crossobj.filters)
+crossobj.style.opacity=this.degree/101
+}
+ 
+ 
+fadeshow.prototype.startit=function(){
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+this.populateslide(crossobj, this.curimageindex)
+if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+var cacheobj=this
+var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+}
+this.rotateimage()
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+</head>
+
+<body background="img/bk-home.jpg" topmargin=0 leftmargin=0" onLoad="MM_preloadImages('img/nav/1r.jpg','img/nav/2r.jpg','img/nav/3r.jpg','img/nav/4r.jpg','img/nav/5r.jpg','img/nav/6r.jpg','img/nav/7r.jpg')">
+<div align="center">
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td colspan="3"> 
+        <div align="center"><img src="img/s-top.png" width="1036" height="23"></div>
+      </td>
+    </tr>
+    <tr> 
+      <td valign="top" height="525"><img src="img/shadow-left.png" width="23" height="966"></td>
+      <td valign="top" height="525"> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><img src="img/top-logo-nav.jpg" width="990" height="164"></td>
+          </tr>
+          <tr> 
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td><a href="index.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image18','','img/nav/1r.jpg',1)"><img name="Image18" border="0" src="img/nav/1.jpg" width="83" height="35"></a></td>
+                  <td><a href="company-history.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image19','','img/nav/2r.jpg',1)"><img name="Image19" border="0" src="img/nav/2.jpg" width="143" height="35"></a></td>
+                  <td><a href="leasing.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image20','','img/nav/3r.jpg',1)"><img name="Image20" border="0" src="img/nav/3.jpg" width="213" height="35"></a></td>
+                  <td><a href="residential-management.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image21','','img/nav/4r.jpg',1)"><img name="Image21" border="0" src="img/nav/4.jpg" width="192" height="35"></a></td>
+                  <td><a href="http://www.wcanmiller.com/intranet/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image22','','img/nav/5r.jpg',1)"><img name="Image22" border="0" src="img/nav/5.jpg" width="150" height="35"></a></td>
+                  <td><a href="http://www.wcanmiller.com/intranet/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image23','','img/nav/6r.jpg',1)"><img name="Image23" border="0" src="img/nav/6.jpg" width="114" height="35"></a></td>
+                  <td><a href="contact.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image24','','img/nav/7r.jpg',1)"><img name="Image24" border="0" src="img/nav/7.jpg" width="95" height="35"></a></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr> 
+            <td>
+              <script type="text/javascript">
+//new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause (0=no, 1=yes), optionalRandomOrder
+new fadeshow(fadeimages, 990, 342, 0, 4000, 1)
+ 
+</script>
+            </td>
+          </tr>
+          <tr> 
+            <td height="2"><img src="img/middle-bar-blue.jpg" width="990" height="16"></td>
+          </tr>
+          <tr> 
+            <td> 
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+                <tr> 
+                  <td width="1%"><img src="img/line-border-left.jpg" width="18" height="409"></td>
+                  <td width="49%" valign="top"> 
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr> 
+                        <td colspan="2"><img src="img/spacer.gif" width="469" height="20"></td>
+                      </tr>
+                      <tr> 
+                        <td colspan="2" height="118"> 
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr> 
+                              <td width="1%"><img src="img/spacer.gif" width="29" height="10"></td>
+                              <td width="96%" valign="top"> 
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr> 
+                                    <td><img src="img/space.gif" width="1" height="1"></td>
+                                  </tr>
+                                  <tr> 
+                                    <td height="14"><span class="times2">Welcome</span><span class="head1Red"></span></td>
+                                  </tr>
+                                  <tr> 
+                                    <td height="2"><img src="img/space.gif" width="1" height="15"></td>
+                                  </tr>
+                                </table>
+                                <span class=gray0>The W.C. and A.N. Miller Development 
+                                Company is a privately held company, with main 
+                                offices located in Bethesda Maryland, that has 
+                                been serving the Washington DC Community since 
+                                1912. Beyond its portfolio of commercial developments, 
+                                W.C. and A.N. Miller is known for building some 
+                                of the most prestigious residential communities 
+                                in the Washington DC area. These include Wesley 
+                                Heights, Spring Hill, Spring Valley, Sumner, Overlook, 
+                                Potomac Falls, Spring Meadows, and Spring Ridge. 
+                                <br>
+                                <br>
+                                We are proud to be serving the community since 
+                                1912.<br>
+                                </span><span class=gray0><br>
+                                <span class="times3">We look forward to serving 
+                                your real <br>
+                                estate needs for another 100 years!</span></span> 
+                              </td>
+                              <td width="3%" valign="top"><img src="img/spacer.gif" width="15" height="1"></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="25%" valign="top"><img src="img/headshots.jpg" width="481" height="387"></td>
+                  <td width="25%" valign="top"><img src="img/line-border-right.jpg" width="22" height="409"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td valign="top" height="525"><img src="img/shadow-right.png" width="23" height="966"></td>
+    </tr>
+  </table>
+  <table width="100" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td valign="top" width="23" height="128"><img src="img/s-footer-left.png" width="23" height="200"></td>
+      <td width="1007" height="128" valign="top"><img src="img/footer.jpg" width="990" height="200" usemap="#Map" border="0"><map name="Map"><area shape="rect" coords="800,168,914,187" href="http://www.wcanmiller.com/intranet/admin/"></map></td>
+      <td width="6" valign="top" height="128"><img src="img/s-footer-right.png" width="23" height="200"></td>
+    </tr>
+    <tr> 
+      <td colspan="3">
+        <div align="center"><img src="img/s-footer-bottom.png" width="1036" height="28"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

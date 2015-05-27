@@ -1,0 +1,370 @@
+/* Main color and sizes */
+body {
+	background: #FFFFFF url("../img/bk-home.jpg");
+	color: #000000;
+	font-family: verdana, arial, helvetica, sans;
+	font-size: 11pt;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: #0000FF;
+}
+a:hover {
+	
+}
+a img {
+  	border: none;
+}
+
+.nosee {
+	display: none;
+}
+
+.container {
+	width: 990px;
+	height: 453px;
+	padding: 0px;
+	margin: 0px;
+	background: #ffffff;
+}
+.admincontainer {
+	width: 990px;
+	height: 529px;
+	padding: 0px;
+	margin: 0px;
+	background: #ffffff;
+}
+
+.center {
+	text-align: center;
+	margin: auto;
+	width: 1036px;
+	padding: 23px;
+}
+
+/* Main Table*/
+table.main {
+	width: 1036px;
+	height: 684px;
+	font-size: 12px;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	border-spacing: 0px 0px;
+	border: none;
+}
+
+td.leftshadow, td.rightshadow {
+	vertical-align: top;
+	width: 23px;
+	height: 620px;
+}
+td.topshadow {
+	vertical-align: bottom;
+	width: 1036px;
+	height: 23px;
+}
+td.topshadow {
+	vertical-align: top;
+	width: 1036px;
+	height: 23px;
+}
+
+td.maincontent {
+	vertical-align: top;
+	width: 990px;
+	height: 620px;
+}
+
+/* End Main Table */
+
+.guest {
+	width: 835px;
+	margin: auto;
+}
+
+.imgContainer {
+	text-align: center;
+	margin: auto;	
+	width: 835px;
+}
+
+div.main {
+	float: left;
+	width: 682px;
+	height: 275px;
+	font-size: 12px;
+	text-align: left;
+	padding: 9px 8px 0px 0px;
+	margin: 0px;
+}
+div.adminmain {
+	float: left;
+	width: 682px;
+	height: 453px;
+	font-size: 12px;
+	text-align: left;
+	padding: 9px 8px 0px 0px;
+	margin: 0px;
+}
+
+.header {
+	width: 990px;
+	background: #FFFFFF;
+	text-align: center;
+	height: 145px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.footer {
+	width: 990px;
+	height: 200px;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+/*
+.header, .headercenter {
+	font-size: 36pt;
+	font-weight: bold;
+	display: block;
+	width: 100%;
+	height: 150px;
+	margin: 0px;
+	padding: 20px 0px 20px 0px;
+	border-bottom: 1px solid;
+	background: transparent;
+	font-family: Copperplate Gothic Bold;
+	min-width: 600px;
+	text-align: center;
+}
+.headercenter {
+	text-align: center;
+}
+.headerin {
+	width: 916px;
+	padding-left: 105px;
+}
+span.smallheader {
+	font-size: 24pt;
+}
+*/
+/*
+.footer {
+	font-size: 9pt;
+	padding: 10px;
+	text-align: center;
+	width: 100%;
+	min-width: 600px;
+	clear: both;
+	margin: auto;
+	background: transparent;
+}
+*/
+
+.title {
+	width: 100%;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 8px;
+}
+
+span.maintitle {
+	font-family: Copperplate Gothic Light;
+	font-size: 20pt;
+}
+
+span.logintitle {
+	font-size: 16pt;
+}
+
+p.selectaccess {
+	padding: 10px 0px;
+}
+span.selectaccess {
+	font-style:italic;
+}
+
+p.clicktoadmin {
+	padding-top: 120px;
+}
+span.clicktoadmin a {
+	font-size: 8pt;
+}
+span.clickto a {
+	font-size: 12pt;
+}
+
+.serving {
+	width: 100%;
+	text-align: center;
+	padding-top: 20px;
+}
+p.just {
+	text-align: justify;
+}
+
+/* NAV */
+.nav {
+	float: left;
+	width: 300px;
+	font-size: 12px;
+	text-align: left;
+}
+
+.nav a {
+	text-decoration: none;
+	color: #444444;
+}
+.nav a:hover {
+	text-decoration: none;
+	color: #888888;
+}
+
+p.nav {
+	font-size: 14px;
+	margin: 5px 0px;
+	padding: 0px 0px 0px 8px;
+	width: 292px;
+	float: none;
+	min-height: 0px;
+}
+
+ul.subnav {
+	font-size: 12px;
+	margin: 0px 0px 10px 0px;
+}
+li.subnav {
+	list-style: none;
+}
+
+/* END NAV */
+
+/* Files Table */
+table.files {
+	width: 100%;
+	font-size: 12px;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+	border-spacing: 0px 0px;
+}
+
+tr {
+	margin: 0px;
+	padding: 0px;
+	border: 0px none;
+}
+/*
+td {
+	border: 1px solid #000000;
+	padding: 3px;
+}
+*/
+tr.filestop {
+	border-top: 1px solid;
+}
+tr.filesbottom {
+	border-bottom: 1px solid;
+}
+tr.spacer {
+	border: none;
+	background: transparent;
+	padding: 10px 0px;
+}
+td.displayname {
+	width: 80%;
+	border: none;
+}
+td.udate {
+	width: 20%;
+	border: none;
+	text-align: right;
+}
+td.comments, td.spacer {
+	border: none;
+}
+
+tr.pagenav {
+	border: none;
+	background: transparent;
+	padding: 10px 0px;
+}
+td.leftpagenav {
+	text-align: left;
+	border: none;
+}
+td.rightpagenav {
+	text-align: right;
+	border: none;
+}
+td.rightpagenav a,  td.leftpagenav a{
+	text-decoration: none;
+	color: #444444;
+}
+td.rightpagenav a:hover, td.leftpagenav a:hover {
+	text-decoration: none;
+	color: #888888;
+}
+
+/* End Files Table*/
+
+/* admin edits */
+div.admin {
+	text-align: center;
+	background: transparent;
+	margin: 0px;
+	padding: 0px;
+}
+td.admin {
+	font-weight: bold;
+	border: none;
+}
+
+.edit {
+	display: inline;
+	float: right;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.delete {
+	display: inline;
+	float: right;
+	text-align: right;
+}
+
+.red {
+	color: #cc0000;
+}
+
+/* end admin edits*/
+
+/* upload table */
+
+table.upload {
+	font-size: 12px;
+	text-align: left;
+	margin: auto;
+	padding: 0px;
+	border-spacing: 20px 8px;
+}
+
+/* end upload table */
+
+/* temp*/
+
+.temp { 
+	position: absolute;
+	top: 180px;
+	left: 15px;
+	font-family: arial;
+}

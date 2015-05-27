@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Password Protected"
+AuthUserFile /hermes/bosoraweb110/b721/glo.globatct/intranet/admin/.htpasswd
+AuthGroupFile /hermes/bosoraweb110/b721/glo.globatct/intranet/admin/groups
+Require Group management
